@@ -98,3 +98,14 @@ variable "allow_encrypted_uploads_only" {
   default     = false
   description = "Set to `true` to prevent uploads of unencrypted objects to S3 bucket"
 }
+
+variable "cors_rule_inputs" {
+  type = list(object({
+    allowed_headers = list(string)
+    allowed_methods = list(string)
+    allowed_origins = list(string)
+    expose_headers  = list(string)
+    max_age_seconds = number
+  }))
+  default = null
+}
